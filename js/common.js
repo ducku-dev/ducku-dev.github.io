@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 계좌 검증 규칙
     const rules = {
-        // 국민: 25자리, 5~6번째 자리 03, 23, 26
-        kb: /^\d{4}(03|23|26)\d{19}$/,
+        // 국민: 14자리, 5~6번째 자리 03, 23, 26
+        kb: /^\d{4}(03|23|26)\d{8}$/,
         // 신한: 12자리, 1~3번째 자리 230, 223
         shinhan: /^(230|223)\d{9}$/,
         // 우리: 13자리, 2~4번째 자리 040
@@ -60,22 +60,121 @@ document.addEventListener('DOMContentLoaded', function () {
     function validateAccount() {
         const bank = bankSelect.value;
         let accountNumber = accountInput.value.replace(/[-\s]/g, ""); // 공백과 - 제거
-
+    
+        // 계좌 번호의 길이 체크
+        const accountLength = accountNumber.length;
+    
         if (!rules[bank]) {
             message.innerHTML  = '은행을 선택해주세요.';
         } else if (!rules[bank].test(accountNumber)) {
-            if (accountNumber.length !== 12 && accountNumber.length !== 14) {
-                message.innerHTML  = '올바른 형식의 계좌가 아닙니다.<br>계좌번호를 확인해주세요.😯';
-            } else {
-                message.innerHTML  = '해당 계좌는 적금 계좌가 아닙니다.👌';
+            // 각 은행별 계좌 번호 길이에 따라 오류 메시지 다르게 처리
+            switch(bank) {
+                case 'kb': // 국민은행
+                    if (accountLength !== 14) {
+                        message.innerHTML = '국민은행 계좌는 14자리입니다.<br> 계좌번호를 확인해주세요.😯';
+                    }
+                    break;
+                case 'shinhan': // 신한은행
+                    if (accountLength !== 12) {
+                        message.innerHTML = '신한은행 계좌는 12자리입니다.<br>계좌번호를 확인해주세요.😯';
+                    }
+                    break;
+                case 'woori': // 우리은행
+                    if (accountLength !== 13) {
+                        message.innerHTML = '우리은행 계좌는 13자리입니다.<br>계좌번호를 확인해주세요.😯';
+                    }
+                    break;
+                case 'hn': // 하나은행
+                    if (accountLength !== 14) {
+                        message.innerHTML = '하나은행 계좌는 14자리입니다.<br>계좌번호를 확인해주세요.😯';
+                    }
+                    break;
+                case 'nh': // 농협
+                    if (accountLength !== 12 && accountLength !== 14) {
+                        message.innerHTML = '농협 계좌는 12자리 또는 14자리입니다.<br> 계좌번호를 확인해주세요.😯';
+                    }
+                    break;
+                case 'sh': // 수협
+                    if (accountLength !== 12) {
+                        message.innerHTML = '수협 계좌는 12자리입니다.<br>계좌번호를 확인해주세요.😯';
+                    }
+                    break;
+                case 'ibk': // 기업은행
+                    if (accountLength !== 14) {
+                        message.innerHTML = '기업은행 계좌는 14자리입니다.<br>계좌번호를 확인해주세요.😯';
+                    }
+                    break;
+                case 'kdb': // 산업은행
+                    if (accountLength !== 14) {
+                        message.innerHTML = '산업은행 계좌는 14자리입니다. 계좌번호를 확인해주세요.😯';
+                    }
+                    break;
+                case 'kakao': // 카카오은행
+                    if (accountLength !== 13) {
+                        message.innerHTML = '카카오은행 계좌는 13자리입니다.<br>계좌번호를 확인해주세요.😯';
+                    }
+                    break;
+                case 'k': // 케이뱅크
+                    if (accountLength !== 12) {
+                        message.innerHTML = '케이뱅크 계좌는 12자리입니다.<br>계좌번호를 확인해주세요.😯';
+                    }
+                    break;
+                case 'toss': // 토스뱅크
+                    if (accountLength !== 12) {
+                        message.innerHTML = '토스뱅크 계좌는 12자리입니다.<br>계좌번호를 확인해주세요.😯';
+                    }
+                    break;
+                case 'bnk': // 경남은행
+                    if (accountLength !== 13) {
+                        message.innerHTML = '경남은행 계좌는 13자리입니다.<br>계좌번호를 확인해주세요.😯';
+                    }
+                    break;
+                case 'kj': // 광주은행
+                    if (accountLength !== 12) {
+                        message.innerHTML = '광주은행 계좌는 12자리입니다.<br>계좌번호를 확인해주세요.😯';
+                    }
+                    break;
+                case 'im': // 대구은행
+                    if (accountLength !== 12) {
+                        message.innerHTML = '대구은행 계좌는 12자리입니다.<br>계좌번호를 확인해주세요.😯';
+                    }
+                    break;
+                case 'bs': // 부산은행
+                    if (accountLength !== 13) {
+                        message.innerHTML = '부산은행 계좌는 13자리입니다.<br>계좌번호를 확인해주세요.😯';
+                    }
+                    break;
+                case 'jb': // 전북은행
+                    if (accountLength !== 13) {
+                        message.innerHTML = '전북은행 계좌는 13자리입니다.<br>계좌번호를 확인해주세요.😯';
+                    }
+                    break;
+                case 'jeju': // 제주은행
+                    if (accountLength !== 10 && accountLength !== 12) {
+                        message.innerHTML = '제주은행 계좌는 10자리 또는 12자리입니다.<br>계좌번호를 확인해주세요.😯';
+                    }
+                    break;
+                case 'city': // 시티은행
+                    if (accountLength !== 11 && accountLength !== 13) {
+                        message.innerHTML = '시티은행 계좌는 11자리 또는 13자리입니다.<br>계좌번호를 확인해주세요.😯';
+                    }
+                    break;
+                case 'sc': // SC제일은행
+                    if (accountLength !== 11) {
+                        message.innerHTML = 'SC제일은행 계좌는 11자리입니다.<br>계좌번호를 확인해주세요.😯';
+                    }
+                    break;
+                default:
+                    message.innerHTML = '해당 은행의 계좌 형식이 맞지 않습니다.😯';
             }
         } else {
-            message.innerHTML  = '🚨적금계좌입니다. 사기에 주의하세요.🚨';
+            message.innerHTML = '🚨적금계좌입니다. 사기에 주의하세요.🚨';
         }
-
+    
         // 팝업 표시
         popup.classList.add('show');
     }
+    
 
     // 팝업 닫기 버튼
     document.querySelector('.close_btn').addEventListener('click', function () {
