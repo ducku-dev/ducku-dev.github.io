@@ -253,7 +253,7 @@ em {
   color: #222222;
   font-size: 16px;
   outline: none;
-  min-height: 47px;
+  height: 47px;
 }
 .wrap .form_box .input_group input[type=text] {
   width: 100%;
