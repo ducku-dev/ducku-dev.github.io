@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>저도 알고싶지 않았습니다 - 계좌 감별</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="stylesheet" href="./css/common.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="./js/common.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="form_box">
+            <h1>적금 계좌 확인 ✅</h1>
+            <form>
+                <div class="input_group">
+                    <label>은행</label>
+                    <select name="bank">
+                        <option value="" disabled selected hidden>은행 선택</option>
+                        <option value="sc">SC</option>
+                        <option value="bnk">경남</option>
+                        <option value="kj">광주</option>
+                        <option value="kb">국민</option>
+                        <option value="ibk">기업</option>
+                        <option value="nh">농협</option>
+                        <option value="im">대구</option>
+                        <option value="bs">부산</option>
+                        <option value="kdb">산업</option>
+                        <option value="sh">수협</option>
+                        <option value="city">시티</option>
+                        <option value="shinhan">신한</option>
+                        <option value="woori">우리</option>
+                        <option value="jb">전북</option>
+                        <option value="jeju">제주</option>
+                        <option value="kakao">카카오</option>
+                        <option value="k">케이</option>
+                        <option value="toss">토스</option>
+                        <option value="hn">하나</option>
+                    </select>
+                </div>
+                <div class="input_group">
+                    <label>계좌번호</label>
+                    <input type="text" placeholder="계좌번호 입력" name="account">
+                </div>
+                <button type="button" class="submit_btn" disabled>계좌 조회</button>
+            </form>
+            <p>계좌 판독 기준 : <a href="https://m.blog.naver.com/fss2009/223402293345" target="_blank">금융감독원</a></p>
+        </div>
+        <div class="btn_box">
+            <a href="https://thecheat.co.kr/rb/?mod=_search" target="_blank">더치트</a>
+            <a href="https://web.joongna.com/fraud" target="_blank">중고나라 사기조회</a>
+            <a href="https://cyberbureau.police.go.kr/prevention/sub7.jsp?mid=020600">경찰청 사기조회</a>
+        </div>
+        <div class="accordion_box">
+            <input type="checkbox" id="answer01" />
+            <label for="answer01">양도 받기 전 Check List ❗❗</label>
+            <div class="response">
+                <ul>
+                    <li>사이트를 통해 <em>사기 거래에 사용된 계좌를 조회</em></li>
+                    <li>은행별 계좌번호 체계로 <em>적금 계좌인지 확인</em></li>
+                    <li>트위터, 구글 등 여러 사이트에서<br><em>계좌주 검색해서 사기이력 조회</em></li>
+                    <li><em>시세 대비 지나치게 저렴한</em> 판매자는 의심!</li>
+                    <li>판매자가 <em>'안전거래'를 종용하며 url</em>을 보내주는 경우<br>공식 링크인지 확인 (99% 사기!)</li>
+                    <li>외국인과 페이팔 거래 시 <em>페이팔 공식 메일인지 도메인 확인</em></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="layer_pop">
+        <div class="pop_wrap">
+            <div class="pop_contents">
+                <p></p>
+            </div>
+            <button type="button" class="close_btn">확인</button>
+        </div>
+    </div>
+</body>
+</html>
