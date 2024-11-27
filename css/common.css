@@ -201,23 +201,15 @@ em {
   position: relative;
   width: 100%;
   height: auto;
-  padding: 40px 0;
+  padding: 80px 0 40px;
   min-height: 100vh;
   background: #ffffff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 25px;
+}
+.wrap .contents {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 .wrap .form_box {
   position: relative;
@@ -314,6 +306,7 @@ em {
   text-decoration: underline;
 }
 .wrap .btn_box {
+  margin-top: 25px;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -384,6 +377,7 @@ em {
   left: 4px;
 }
 .wrap .accordion_box {
+  margin-top: 25px;
   position: relative;
   width: 100%;
   padding: 0 20px;
@@ -409,9 +403,12 @@ em {
   opacity: 1;
   visibility: visible;
   max-height: 800px;
+  margin-top: 10px;
+}
+.wrap .accordion_box input[type=checkbox]:checked + label + .response ul {
+  height: auto;
 }
 .wrap .accordion_box .response {
-  margin-top: 10px;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   opacity: 0;
@@ -419,17 +416,21 @@ em {
   max-height: 0;
   border-radius: 5px;
   border: 1px solid #dde3ec;
+  overflow: hidden;
 }
-.wrap .accordion_box .response li {
+.wrap .accordion_box .response ul {
+  height: 0;
+}
+.wrap .accordion_box .response ul li {
   padding: 5px 10px;
   color: #222222;
   font-size: 16px;
   line-height: 24px;
 }
-.wrap .accordion_box .response li::marker {
+.wrap .accordion_box .response ul li::marker {
   content: "·";
 }
-.wrap .accordion_box .response li em {
+.wrap .accordion_box .response ul li em {
   text-decoration: underline;
   font-weight: 600;
 }
